@@ -111,7 +111,7 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #49bf9d;
+		color: #ffffff;
 		text-decoration: none;
 	}
 
@@ -119,6 +119,7 @@ input, select, textarea {
 			border-bottom-color: transparent;
 			color: #49bf9d !important;
 			text-decoration: none;
+			border-bottom: dotted 2px;
 		}
 
 	strong, b {
@@ -2052,13 +2053,13 @@ input, select, textarea {
 				border-radius: 0.35em;
 				border: solid 3px rgba(255, 255, 255, 0.5);
 				color: #fff;
-				content: 'View';
+				content: 'Go To Website';
 				display: inline-block;
 				font-size: 0.8em;
 				font-weight: 400;
 				left: 50%;
 				line-height: 2.25em;
-				margin: -1.25em 0 0 -3em;
+				margin: -1.25em 0 0 -5em;
 				opacity: 0;
 				padding: 0 1.5em;
 				position: absolute;
@@ -2105,7 +2106,7 @@ input, select, textarea {
 		.image.fit {
 			display: block;
 			margin: 0 0 2em 0;
-			width: 100%;
+			width: 90%;
 		}
 
 			.image.fit img {

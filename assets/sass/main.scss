@@ -748,6 +748,9 @@ $size-header-pad: 4em;
 	ul.labeled-icons {
 		list-style: none;
 		padding: 0;
+			columns: 2;
+			-webkit-columns: 2;
+			-moz-columns: 2;
 
 		li {
 			line-height: 1.75em;
