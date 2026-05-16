@@ -1,0 +1,21 @@
+name: Notify on deploy
+
+on:
+  page_build:
+
+jobs:
+  notify:
+    if: github.event.build.status == 'built'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "dbranham20.github.io deployed"
+          to: "idanielbranham@gmail.com"
+          from: ${{ secrets.SMTP_USERNAME }}
+          body: "The page has been deployed successfully."
