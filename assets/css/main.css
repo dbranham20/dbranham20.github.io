@@ -3187,3 +3187,256 @@ input, select, textarea {
 			}
 
 	}
+
+/* ── Refresh additions ─────────────────────────────────────── */
+
+/* Section heading accent line */
+#main > section > h1 {
+	display: inline-block;
+	padding-bottom: 0.3em;
+	border-bottom: 2px solid #49bf9d;
+	margin-bottom: 1.2em;
+	letter-spacing: 0.02em;
+}
+
+/* Drop dividers from .alt lists in favor of subtle accent bullets */
+ul.alt {
+	padding-left: 0;
+	margin: 0 0 1.25em 0;
+}
+
+ul.alt li {
+	border-top: 0;
+	padding: 0.35em 0 0.35em 1.4em;
+	position: relative;
+	line-height: 1.55em;
+}
+
+ul.alt li:first-child {
+	padding-top: 0.35em;
+}
+
+ul.alt li::before {
+	content: '';
+	background: #49bf9d;
+	border-radius: 50%;
+	height: 6px;
+	width: 6px;
+	left: 0.15em;
+	position: absolute;
+	top: 0.95em;
+}
+
+/* Work experience — soft card with left accent */
+#work article {
+	background: #fafafa;
+	border-left: 3px solid #49bf9d;
+	border-radius: 0 0.4em 0.4em 0;
+	padding: 1.4em 1.6em 1.1em 1.6em;
+	margin-bottom: 1.5em;
+	transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#work article:hover {
+	background: #f3f9f7;
+}
+
+#work article h2 {
+	font-size: 1.25em;
+	margin-bottom: 0.15em;
+}
+
+#work article h4 {
+	color: #a2a2a2;
+	font-size: 0.9em;
+	margin-bottom: 0.9em;
+}
+
+#work article > br {
+	display: none;
+}
+
+#work article p {
+	margin: 0 0 1em 0;
+}
+
+/* Tech tag pill badges */
+ul.tech-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4em;
+	list-style: none;
+	padding: 0.25em 0 0 0;
+	margin: 0;
+}
+
+ul.tech-tags li {
+	background: #ffffff;
+	border: solid 1px #c5e8de;
+	border-radius: 2em;
+	color: #3a9e7e;
+	font-size: 0.72em;
+	padding: 0.15em 0.85em;
+	line-height: 1.9em;
+}
+
+/* Education — horizontal cards with top-accent stripe (distinct from work) */
+#edu .edu-card {
+	display: flex;
+	gap: 1.5em;
+	background: #fafafa;
+	border-top: 3px solid #49bf9d;
+	border-radius: 0 0 0.4em 0.4em;
+	padding: 1.4em 1.6em;
+	margin-bottom: 1.5em;
+	align-items: flex-start;
+	transition: background-color 0.2s ease-in-out;
+}
+
+#edu .edu-card:hover {
+	background: #f3f9f7;
+}
+
+#edu .edu-thumb {
+	flex-shrink: 0;
+	width: 150px;
+	border-radius: 0.4em;
+	overflow: hidden;
+	border-bottom: 0;
+	line-height: 0;
+	display: block;
+}
+
+#edu .edu-thumb img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.4em;
+	transition: transform 0.3s ease-in-out;
+}
+
+#edu .edu-card:hover .edu-thumb img {
+	transform: scale(1.04);
+}
+
+#edu .edu-details {
+	flex: 1;
+	min-width: 0;
+}
+
+#edu .edu-details h3 {
+	font-size: 1.2em;
+	margin: 0 0 0.25em 0;
+}
+
+#edu .edu-details h4 {
+	color: #787878;
+	font-size: 0.95em;
+	margin: 0 0 0.4em 0;
+	font-style: normal;
+}
+
+#edu .edu-meta {
+	color: #a2a2a2;
+	font-size: 0.85em;
+	margin: 0 0 0.75em 0;
+	letter-spacing: 0.02em;
+}
+
+#edu .edu-courses {
+	color: #787878;
+	font-size: 0.85em;
+	line-height: 1.55em;
+	margin: 0;
+}
+
+#edu .edu-sep {
+	color: #c5c5c5;
+	margin: 0 0.35em;
+}
+
+@media screen and (max-width: 736px) {
+	#edu .edu-card {
+		flex-direction: column;
+		gap: 1em;
+		padding: 1.1em 1.1em;
+	}
+	#edu .edu-thumb {
+		width: 55%;
+		max-width: 200px;
+	}
+	#edu .edu-details h3 {
+		font-size: 1.05em;
+	}
+}
+
+/* Side projects grid */
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1.5em;
+	margin-top: 1.5em;
+}
+
+.side-project {
+	background: #fafafa;
+	border-radius: 0.5em;
+	padding: 1.25em;
+	display: flex;
+	flex-direction: column;
+	transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.side-project:hover {
+	background: #f3f9f7;
+	transform: translateY(-2px);
+}
+
+.side-project .project-thumb {
+	display: block;
+	border-radius: 0.4em;
+	overflow: hidden;
+	margin-bottom: 1em;
+	border-bottom: 0;
+	line-height: 0;
+}
+
+.side-project .project-thumb img {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: transform 0.3s ease-in-out;
+}
+
+.side-project:hover .project-thumb img {
+	transform: scale(1.03);
+}
+
+.side-project h3 {
+	font-size: 1.1em;
+	margin: 0 0 0.4em 0;
+}
+
+.side-project p {
+	font-size: 0.85em;
+	line-height: 1.5em;
+	margin: 0 0 1em 0;
+	flex-grow: 1;
+}
+
+.side-project .button.small {
+	min-width: 0;
+	padding: 0 1.25em;
+	font-size: 0.8em;
+}
+
+@media screen and (max-width: 736px) {
+	#work article {
+		border-left: 2px solid #49bf9d;
+		padding: 1.1em 1.1em 0.9em 1.1em;
+	}
+
+	#work article h2 {
+		font-size: 1.05em;
+	}
+}
