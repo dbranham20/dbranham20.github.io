@@ -1,17 +1,29 @@
 # Photo gallery builder
 
-Builds one page per location at `gallery/<slug>/`, for NFC map pins (or any link).
+One page per location at `gallery/<name>/`, meant for NFC map pins (or any link).
 
+## Adding a gallery
+
+1. Make a folder named in lowercase with hyphens, e.g. `gallery/barcelona/`, and **copy** your photos into it.
+2. Run the script from the repo root:
+   ```bash
+   pip install pillow pillow-heif     # once; pillow-heif is only for iPhone .heic files
+   python tools/gallery/make_gallery.py
+   ```
+3. Commit and push. The page is live at `https://dbranham20.github.io/gallery/barcelona/` about a minute later.
+
+Optional title and date line (otherwise the title comes from the folder name):
 ```bash
-pip install pillow pillow-heif        # pillow-heif only needed for iPhone .heic files
-python tools/gallery/make_gallery.py ~/Photos/barcelona barcelona --title "Barcelona" --subtitle "June 2025"
-git add gallery && git commit -m "Add Barcelona gallery" && git push
+python tools/gallery/make_gallery.py barcelona --title "Barcelona" --subtitle "June 2025"
 ```
 
-The page is live at `https://dbranham20.github.io/gallery/barcelona/` about a minute after the push.
+## How it behaves
 
-- Photos are resized (1600 px full, 640 px thumbnails) and re-saved as JPEG, which **strips EXIF data including GPS location**. Originals are never touched.
-- Photos are ordered by capture time, falling back to file name.
-- Re-running with the same slug rebuilds that gallery from scratch.
-- Pages are marked `noindex`, so search engines are asked to skip them. The repo is public, so anyone with the link (or browsing the repo) can still see the photos.
-- Layout and styling live in `template.html`; changes apply to galleries the next time they are built.
+- Safe to re-run any time. Folders with nothing new are left alone ("up to date").
+- Add more photos to a folder later and re-run; they are merged in by date taken.
+- Each photo becomes a 1600 px JPEG plus a 640 px thumbnail in `img/`, with **all EXIF data, including GPS location, removed**.
+- **The raw copies you dropped into the folder are deleted** once their processed versions are saved, so work from copies, never originals. Anything that can't be processed is left in place and reported.
+- To remove a photo, delete its files from `img/full/` and `img/thumb/` and re-run; it drops off the page.
+- `gallery.json` in each folder stores the title, subtitle and photo list (edit it by hand if you like, then run with `--rebuild`).
+- `--rebuild` rewrites every page from its `gallery.json`, e.g. after changing `template.html`.
+- Pages are marked `noindex`, but the repo is public, so anyone with the link (or browsing the repo) can see the photos.
