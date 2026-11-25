@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mexico City</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0a1024" />
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <style>
+    :root {
+      --bg: #0a1024;
+      --surface: #0f1833;
+      --text: #f3dcc2;
+      --muted: #b8a58e;
+      --brand: #f4b183;
+      --rule: rgba(243, 220, 194, 0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    a { color: var(--brand); }
+    header {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 0.5rem;
+    }
+    .back { font-size: 0.9rem; color: var(--muted); text-decoration: none; }
+    .back:hover { color: var(--brand); }
+    h1 { margin: 0.6rem 0 0; font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.15; color: var(--text); }
+    .sub { margin: 0.25rem 0 0; color: var(--muted); }
+    main { max-width: 1400px; margin: 0 auto; padding: 1rem 1rem 3rem; }
+
+    /* Masonry-style grid: columns keep each photo's natural aspect ratio */
+    .grid { column-width: 240px; column-gap: 10px; }
+    .ph {
+      display: block;
+      margin: 0 0 10px;
+      break-inside: avoid;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface);
+      line-height: 0;
+      outline-offset: 3px;
+    }
+    .ph img { width: 100%; height: auto; display: block; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .ph:hover img { transform: scale(1.03); }
+    .ph:focus-visible { outline: 2px solid var(--brand); }
+
+    /* Lightbox */
+    .lb {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(5, 8, 20, 0.96);
+      display: none; align-items: center; justify-content: center;
+      touch-action: pan-y;
+    }
+    .lb.open { display: flex; }
+    .lb img { max-width: 100vw; max-height: 100vh; max-height: 100dvh; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+    .lb button {
+      position: absolute; background: rgba(15, 24, 51, 0.75); color: var(--text);
+      border: 1px solid var(--rule); border-radius: 999px;
+      width: 46px; height: 46px; font-size: 1.4rem; line-height: 1; cursor: pointer;
+    }
+    .lb button:hover, .lb button:focus-visible { background: var(--brand); color: var(--bg); outline: none; }
+    .lb .close { top: max(12px, env(safe-area-inset-top)); right: 12px; }
+    .lb .prev { left: 12px; top: 50%; transform: translateY(-50%); }
+    .lb .next { right: 12px; top: 50%; transform: translateY(-50%); }
+    .lb .count {
+      position: absolute; bottom: max(14px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%);
+      color: var(--muted); font-size: 0.85rem; background: rgba(15, 24, 51, 0.75);
+      padding: 0.15rem 0.8rem; border-radius: 999px;
+    }
+    @media (max-width: 600px) { .lb .prev, .lb .next { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .ph img { transition: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back" href="../../">&larr; dbranham20.github.io</a>
+    <h1>Mexico City</h1>
+    <p class="sub">19 photos</p>
+  </header>
+
+  <main>
+    <div class="grid" id="grid">
+      <a class="ph" href="img/full/PXL_20211112_034549691.jpg"><img src="img/thumb/PXL_20211112_034549691.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 1"></a>
+      <a class="ph" href="img/full/PXL_20211112_233356430.jpg"><img src="img/thumb/PXL_20211112_233356430.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 2"></a>
+      <a class="ph" href="img/full/PXL_20211113_023010567.jpg"><img src="img/thumb/PXL_20211113_023010567.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 3"></a>
+      <a class="ph" href="img/full/PXL_20211113_023904882.jpg"><img src="img/thumb/PXL_20211113_023904882.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 4"></a>
+      <a class="ph" href="img/full/PXL_20211113_171009028.jpg"><img src="img/thumb/PXL_20211113_171009028.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Mexico City, photo 5"></a>
+      <a class="ph" href="img/full/PXL_20211113_171504793.jpg"><img src="img/thumb/PXL_20211113_171504793.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 6"></a>
+      <a class="ph" href="img/full/PXL_20211113_175807494.jpg"><img src="img/thumb/PXL_20211113_175807494.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 7"></a>
+      <a class="ph" href="img/full/PXL_20211113_191053814.jpg"><img src="img/thumb/PXL_20211113_191053814.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 8"></a>
+      <a class="ph" href="img/full/PXL_20211114_000710374.jpg"><img src="img/thumb/PXL_20211114_000710374.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 9"></a>
+      <a class="ph" href="img/full/PXL_20211114_002029407.jpg"><img src="img/thumb/PXL_20211114_002029407.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Mexico City, photo 10"></a>
+      <a class="ph" href="img/full/PXL_20211114_191826933.jpg"><img src="img/thumb/PXL_20211114_191826933.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Mexico City, photo 11"></a>
+      <a class="ph" href="img/full/PXL_20211116_041713247.jpg"><img src="img/thumb/PXL_20211116_041713247.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Mexico City, photo 12"></a>
+      <a class="ph" href="img/full/PXL_20211116_044651601.jpg"><img src="img/thumb/PXL_20211116_044651601.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 13"></a>
+      <a class="ph" href="img/full/PXL_20211116_221509441.jpg"><img src="img/thumb/PXL_20211116_221509441.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 14"></a>
+      <a class="ph" href="img/full/Snapchat-1272536816.jpg"><img src="img/thumb/Snapchat-1272536816.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Mexico City, photo 15"></a>
+      <a class="ph" href="img/full/Snapchat-1314607067.jpg"><img src="img/thumb/Snapchat-1314607067.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 16"></a>
+      <a class="ph" href="img/full/Snapchat-1595086652.jpg"><img src="img/thumb/Snapchat-1595086652.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 17"></a>
+      <a class="ph" href="img/full/Snapchat-665915238.jpg"><img src="img/thumb/Snapchat-665915238.jpg" width="640" height="480" loading="lazy" decoding="async" alt="Mexico City, photo 18"></a>
+      <a class="ph" href="img/full/Snapchat-88598341.jpg"><img src="img/thumb/Snapchat-88598341.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Mexico City, photo 19"></a>
+    </div>
+  </main>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img id="lb-img" alt="" />
+    <button class="close" id="lb-close" aria-label="Close">&times;</button>
+    <button class="prev" id="lb-prev" aria-label="Previous photo">&lsaquo;</button>
+    <button class="next" id="lb-next" aria-label="Next photo">&rsaquo;</button>
+    <div class="count" id="lb-count"></div>
+  </div>
+
+  <script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#grid .ph'));
+    var lb = document.getElementById('lb');
+    var img = document.getElementById('lb-img');
+    var count = document.getElementById('lb-count');
+    var idx = 0, isOpen = false, startX = null, startY = null;
+
+    function show(i) {
+      idx = (i + links.length) % links.length;
+      img.src = links[idx].getAttribute('href');
+      img.alt = links[idx].querySelector('img').alt;
+      count.textContent = (idx + 1) + ' / ' + links.length;
+      // preload neighbours for snappy swiping
+      [idx + 1, idx - 1].forEach(function (n) {
+        var p = new Image(); p.src = links[(n + links.length) % links.length].getAttribute('href');
+      });
+    }
+    function open(i) {
+      show(i);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (!isOpen) { history.pushState({ lb: 1 }, ''); }
+      isOpen = true;
+      document.getElementById('lb-close').focus();
+    }
+    function closeUI() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      img.removeAttribute('src');
+      isOpen = false;
+      links[idx].focus({ preventScroll: true });
+    }
+    function close() {
+      // let the browser's back handling drive closing so the Back button works on phones
+      if (isOpen && history.state && history.state.lb) { history.back(); } else { closeUI(); }
+    }
+
+    links.forEach(function (a, i) {
+      a.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+    });
+    document.getElementById('lb-close').addEventListener('click', close);
+    document.getElementById('lb-prev').addEventListener('click', function () { show(idx - 1); });
+    document.getElementById('lb-next').addEventListener('click', function () { show(idx + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === img) close(); });
+    window.addEventListener('popstate', function () { if (isOpen) closeUI(); });
+    document.addEventListener('keydown', function (e) {
+      if (!isOpen) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') show(idx + 1);
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+    });
+    lb.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+    }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      startX = startY = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { show(dx < 0 ? idx + 1 : idx - 1); }
+    }, { passive: true });
+  })();
+  </script>
+</body>
+</html>
