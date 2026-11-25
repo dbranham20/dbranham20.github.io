@@ -25,5 +25,6 @@ python tools/gallery/make_gallery.py barcelona --title "Barcelona" --subtitle "J
 - **The raw copies you dropped into the folder are deleted** once their processed versions are saved, so work from copies, never originals. Anything that can't be processed is left in place and reported.
 - To remove a photo, delete its files from `img/full/` and `img/thumb/` and re-run; it drops off the page.
 - `gallery.json` in each folder stores the title, subtitle and photo list (edit it by hand if you like, then run with `--rebuild`).
+- `gallery/index.html` is a simple contents list of every gallery (title, subtitle, photo count). The script rewrites it on every run, so new galleries appear automatically. To keep a gallery reachable by its URL but **off the list**, add `"unlisted": true` to its `gallery.json` and re-run.
 - `--rebuild` rewrites every page from its `gallery.json`, e.g. after changing `template.html`.
 - Pages are marked `noindex`, but the repo is public, so anyone with the link (or browsing the repo) can see the photos.
