@@ -10,6 +10,7 @@ The script is safe to run any time. It only touches folders that contain new, un
   * resizes each photo (full + thumbnail) into gallery/<name>/img/, as JPEG with all EXIF/GPS data removed
   * DELETES the raw copy once its processed version is saved (so raw photos never get committed)
   * records the gallery in gallery/<name>/gallery.json and writes gallery/<name>/index.html
+  * refreshes gallery/index.html, a contents list of all galleries (skip one with "unlisted": true in its gallery.json)
 Folders with nothing new are left alone. Add more photos to a folder later and re-run to add them.
 
 Options:
@@ -106,6 +107,38 @@ def render_page(folder: Path, data):
 
 def sort_key(p):
     return (0 if p["taken"] else 1, p["taken"], p["file"].lower())
+
+
+def write_contents(root: Path):
+    """Write gallery/index.html: a plain list linking to every gallery. Returns True if it changed.
+
+    A gallery with  "unlisted": true  in its gallery.json stays reachable by URL but is left off the list.
+    """
+    entries = []
+    for folder in sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith(".")):
+        if not (folder / "gallery.json").exists() or not (folder / "index.html").exists():
+            continue
+        data = load_gallery(folder)
+        if data.get("unlisted"):
+            continue
+        n = len(data["photos"])
+        meta = " · ".join(x for x in (data["subtitle"].strip(), f"{n} photo" + ("" if n == 1 else "s")) if x)
+        entries.append((data["title"].lower(), folder.name, data["title"], meta))
+    entries.sort()
+
+    if entries:
+        rows = [f'      <li><a href="{html.escape(slug)}/"><span class="name">{html.escape(title)}</span>'
+                f'<span class="meta">{html.escape(meta)}</span></a></li>' for _, slug, title, meta in entries]
+        items = '    <ul>\n' + "\n".join(rows) + '\n    </ul>'
+    else:
+        items = '    <p class="empty">No galleries yet.</p>'
+
+    page = (HERE / "contents_template.html").read_text(encoding="utf-8").replace("{{ITEMS}}", items)
+    out = root / "index.html"
+    if out.exists() and out.read_text(encoding="utf-8") == page:
+        return False
+    out.write_text(page, encoding="utf-8")
+    return True
 
 
 def handle_folder(folder: Path, args, explicit: bool):
@@ -215,10 +248,15 @@ def main():
         sys.exit("nothing to do: copy photos into gallery/<name>/ first")
 
     built = [f for f in targets if handle_folder(f, args, explicit=bool(args.folders))]
-    if built:
+    toc_changed = write_contents(root)
+    if toc_changed:
+        print("[done] contents page updated")
+    if built or toc_changed:
         print("\nWhen you commit and push, these will be live at:")
         for f in built:
             print(f"  {args.base_url}/gallery/{f.name}/")
+        if toc_changed:
+            print(f"  {args.base_url}/gallery/   (contents list)")
 
 
 if __name__ == "__main__":

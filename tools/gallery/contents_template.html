@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galleries</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0a1024" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <style>
+    :root {
+      --bg: #0a1024;
+      --surface: #0f1833;
+      --text: #f3dcc2;
+      --muted: #b8a58e;
+      --brand: #f4b183;
+      --rule: rgba(243, 220, 194, 0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+    .back { font-size: 0.9rem; color: var(--muted); text-decoration: none; }
+    .back:hover { color: var(--brand); }
+    h1 { margin: 0.6rem 0 1.2rem; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { border-top: 1px solid var(--rule); }
+    li:last-child { border-bottom: 1px solid var(--rule); }
+    li a {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+      padding: 0.95rem 0.25rem; text-decoration: none; color: var(--text);
+    }
+    li a:hover, li a:focus-visible { color: var(--brand); outline: none; }
+    .name { font-size: 1.15rem; }
+    .meta { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+    .empty { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../">&larr; dbranham20.github.io</a>
+    <h1>Galleries</h1>
+{{ITEMS}}
+  </div>
+</body>
+</html>
